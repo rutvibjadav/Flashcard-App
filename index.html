@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn HTML, CSS, JavaScript, and web development one flashcard at a time."
+    />
+    <title>Flashcard Learning App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <a class="brand" href="#" aria-label="Flashcard Learning App home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 5.75h11.25A1.75 1.75 0 0 1 20 7.5v11.25H8.75A1.75 1.75 0 0 1 7 17V5.75Z" />
+              <path d="M7 8H5.75A1.75 1.75 0 0 0 4 9.75v8.5C4 19.22 4.78 20 5.75 20H17" />
+              <path d="M10.5 10h4.75M10.5 13h6" />
+            </svg>
+          </span>
+          <span>study<span class="brand-accent">space</span></span>
+        </a>
+        <div class="header-note">
+          <span class="status-dot" aria-hidden="true"></span>
+          Your daily learning session
+        </div>
+      </header>
+
+      <section class="study-area" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow"><span></span> YOUR WEB DEV STUDY DECK</p>
+          <h1 id="page-title">Flashcard Learning App</h1>
+          <p class="subtitle">Learn something new, one card at a time!</p>
+        </div>
+
+        <section class="study-panel" aria-label="Flashcard study area">
+          <div class="deck-topline">
+            <div class="deck-label">
+              <span class="deck-icon" aria-hidden="true">✦</span>
+              <span>FRONTEND FUNDAMENTALS</span>
+            </div>
+            <span class="card-count" id="card-count" aria-live="polite">01 <span>/ 10</span></span>
+          </div>
+
+          <button
+            class="flashcard"
+            id="flashcard"
+            type="button"
+            aria-pressed="false"
+            aria-label="Question: What does HTML stand for? Click to reveal the answer."
+          >
+            <span class="card-inner" id="card-inner">
+              <span class="card-face card-front">
+                <span class="card-meta">
+                  <span class="face-label"><span class="face-dot"></span> QUESTION</span>
+                  <span class="card-sparkle" aria-hidden="true">✳</span>
+                </span>
+                <span class="card-copy" id="question">What does HTML stand for?</span>
+                <span class="card-hint">
+                  <span class="flip-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path d="M15.5 7.5A6 6 0 0 0 5 5.25L3.5 6.5" />
+                      <path d="M3.5 3.75V6.5H6.25M4.5 12.5a6 6 0 0 0 10.5 2.25l1.5-1.25" />
+                      <path d="M16.5 16.25V13.5h-2.75" />
+                    </svg>
+                  </span>
+                  Click to reveal answer
+                </span>
+                <span class="card-decoration decoration-one" aria-hidden="true"></span>
+                <span class="card-decoration decoration-two" aria-hidden="true"></span>
+              </span>
+              <span class="card-face card-back">
+                <span class="card-meta">
+                  <span class="face-label"><span class="face-dot"></span> ANSWER</span>
+                  <span class="card-sparkle" aria-hidden="true">✳</span>
+                </span>
+                <span class="card-copy answer-copy" id="answer">HyperText Markup Language</span>
+                <span class="card-hint">
+                  <span class="flip-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path d="M15.5 7.5A6 6 0 0 0 5 5.25L3.5 6.5" />
+                      <path d="M3.5 3.75V6.5H6.25M4.5 12.5a6 6 0 0 0 10.5 2.25l1.5-1.25" />
+                      <path d="M16.5 16.25V13.5h-2.75" />
+                    </svg>
+                  </span>
+                  Click to see question
+                </span>
+              </span>
+            </span>
+          </button>
+
+          <p class="keyboard-hint">
+            <span class="keycap">←</span><span class="keycap">→</span>
+            Use arrow keys to navigate
+          </p>
+
+          <div class="progress-section">
+            <div class="progress-labels">
+              <span>Deck progress</span>
+              <span class="progress-percent" id="progress-percent">10%</span>
+            </div>
+            <div
+              class="progress-track"
+              id="progress-track"
+              role="progressbar"
+              aria-label="Deck progress"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="10"
+            >
+              <span class="progress-fill" id="progress-fill"></span>
+            </div>
+          </div>
+
+          <nav class="card-navigation" aria-label="Flashcard navigation">
+            <button class="button button-secondary" id="previous-button" type="button" disabled>
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M16 10H4m0 0 5-5m-5 5 5 5" />
+              </svg>
+              Previous
+            </button>
+            <button class="button button-primary" id="next-button" type="button">
+              Next card
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" />
+              </svg>
+            </button>
+          </nav>
+
+          <div class="utility-actions">
+            <button class="text-button" id="shuffle-button" type="button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M14 4h3v3M17 4l-4.25 4.25M6 6H4m12 8h1v2m0 0h-3m3 0-4.25-4.25M4 14h2l2-2" />
+              </svg>
+              Shuffle deck
+            </button>
+            <span class="action-divider" aria-hidden="true"></span>
+            <button class="text-button" id="restart-button" type="button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4.5 8A6 6 0 1 1 4 11m.5-3V4.5M4.5 8H8" />
+              </svg>
+              Start over
+            </button>
+          </div>
+        </section>
+
+        <p class="footer-note">
+          <span aria-hidden="true">✦</span> A little progress every day adds up.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
